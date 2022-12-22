@@ -40,3 +40,41 @@ Não precisa pedir, parte do principio que tudo já esta sendo atualizado.
 - Não foi emitida
 - Erro aconteceu
 - Produto mudou a descrição
+
+### Entendendo CQRS (Command Query Responsability Segregation)
+
+https://github.com/keyvanakbary/cqrs-documents
+https://eximia.co/command-query-responsibility-segregation-cqrs/
+
+**CQS vs CQRS** / Maior diferença é o nível de granularidade
+
+Separar Comando de Consulta
+
+**Comando: (Escrita/Alteração)** intenção de MUDANÇA do usuário. "Criar produto"
+Comando apenas muda/cria algo, não tem retorno porém, esse processo envolve muitas regras que passam pela camada de dominio.
+
+**Consultas: (Leitura)** intensão de obter informação, para por exemplo, hidratar um objeto de dominio, se necessário. Mas, quando separamos o sistema em uma parte que apenas realizam consultas, obviamente que não precisamos do modelo de dominio(DDD). **Foco apenas no dado/retorno.**
+
+### Separação fisica de dados
+
+É possivel guardar os dados fisicamente diferente: Banco de escrita e de leitura.
+
+Com o banco de leitura (NOSQL) podemos ter uma view materializada, evitando JOINS, facilitando a busca.
+
+### Event sourcing vs Command sourcing
+
+**Event sourcing:** Possibilita capturar events e materializar as views.
+
+**Command sourcing:** Estratégia de armazenar os comandos e realizar playback.
+
+### Como implementar CQRS
+
+```bash
+/Domain
+  /Commands
+    /UseCases
+      /DAOs vs Repositories
+/Queries
+  /UseCases #Pode ser meu controller? É possivel evitar complexidade nesse caso?
+    /DAOs vs Repositories 
+```
