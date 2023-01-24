@@ -78,3 +78,20 @@ Com o banco de leitura (NOSQL) podemos ter uma view materializada, evitando JOIN
   /UseCases #Pode ser meu controller? É possivel evitar complexidade nesse caso?
     /DAOs vs Repositories 
 ```
+
+### Eventos
+- Algo que aconteceu no passado
+- Inserir o registro -> Registro Insderido
+
+O que pode ocorrer ao inserir um novo cliente
+- Disparar Email
+- Publicar uma mensagem na fila
+- Notificar um usuário no slack
+- Inserir esse usuário no Salesdorce
+
+### Elementos táticos de um contexto de eventos 
+- Evento (Carregar dados) -> Elemento principal
+- Operações que serão executadas quando um evento é chamado
+- Gerenciador dos nossos eventos/operações
+  - Registrar os eventos e suas operações
+  - Despachar/Fire no evento para que suas operações sejam executadas
