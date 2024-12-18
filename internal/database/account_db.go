@@ -3,7 +3,6 @@ package database
 import (
 	"database/sql"
 
-	_ "github.com/mattn/go-sqlite3"
 	"github.com/robsantossilva/fullcycle-event-driven-architecture/internal/entity"
 )
 

@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"testing"
 
+	_ "github.com/mattn/go-sqlite3"
 	"github.com/robsantossilva/fullcycle-event-driven-architecture/internal/entity"
 	"github.com/stretchr/testify/suite"
 )
